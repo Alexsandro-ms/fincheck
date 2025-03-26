@@ -38,7 +38,6 @@ export class AuthGuard implements CanActivate {
       const payload = await this.jwtService.verifyAsync(token, {
         secret: env.jwtSecret,
       });
-      console.log('Payload decodificado:', payload);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       request['userId'] = payload.sub;
     } catch (error) {
