@@ -14,7 +14,7 @@ export function RegisterPage() {
                         Já possui uma conta?
                     </span>
                     <Link
-                        to="/register"
+                        to="/login"
                         className="text-[#087F5B] tracking-[-0.5px] font-medium"
                     >
                         Fazer Login
@@ -26,7 +26,7 @@ export function RegisterPage() {
                 <Input name="name" type="name" placeholder="Nome" />
                 <Input name="email" type="email" placeholder="E-mail" />
                 <Input name="password" type="password" placeholder="Password" />
-                <Button type="submit" label="Criar" />
+                <Button type="submit" label="Criar conta" />
             </form>
         </>
     );
