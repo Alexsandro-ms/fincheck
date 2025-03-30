@@ -18,7 +18,7 @@ import { UpdateTransactionDto } from './dto/update-transaction.dto';
 import { ActiveUserId } from 'src/shared/decorators/activeUserId';
 import { OptionalParseUUIDPipe } from 'src/shared/pipes/optionalParseUUIDPipe';
 import { TransactionType } from './entities/transaction';
-import { OptionalParseEnumPipe } from 'src/shared/pipes/optionalParseENUMPipe';
+import { OptionalParseEnumPipe } from 'src/shared/pipes/optionalParseEnumPipe';
 
 @Controller('transactions')
 export class TransactionsController {
