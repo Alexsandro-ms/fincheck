@@ -6,11 +6,11 @@ const schema = z.object({
     email: z
         .string()
         .nonempty("O e-mail é obrigatório")
-        .email("Email inválido"),
+        .email("O e-mail é inválido"),
     password: z
         .string()
         .nonempty("A senha é obrigatória")
-        .min(8, "Senha deve ter no mínimo 8 caracteres"),
+        .min(8, "A senha deve ter no mínimo 8 caracteres"),
 });
 
 type FormData = z.infer<typeof schema>; // Define o tipo de dados do formulário com base no esquema Zod
