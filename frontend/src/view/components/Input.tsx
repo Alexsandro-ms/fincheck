@@ -1,11 +1,14 @@
 import { ComponentProps, forwardRef } from "react";
+import { CrossCircledIcon } from "@radix-ui/react-icons";
+import { cn } from "../../app/utils/cn";
 
 interface InputProps extends ComponentProps<"input"> {
     name: string;
+    error?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ placeholder, id, name, ...props }, ref) => {
+    ({ className, placeholder, id, name, error, ...props }, ref) => {
         const inputId = id ?? name;
         return (
             <div className="relative">
@@ -14,7 +17,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     name={name}
                     {...props}
                     id={inputId}
-                    className="w-full bg-white rounded-lg border outline-none border-gray-500 px-3 h-[52px] text-gray-800 pt-4 peer placeholder-shown:pt-0 focus:border-gray-800 transition-all"
+                    className={cn(
+                        "w-full bg-white rounded-lg border outline-none border-gray-500 px-3 h-[52px] text-gray-800 pt-4 peer placeholder-shown:pt-0 focus:border-gray-800 transition-all",
+                        error && "!border-red-700",
+                        className
+                    )}
                     placeholder=" "
                 />
                 <label
@@ -23,6 +30,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 >
                     {placeholder}
                 </label>
+                {error && (
+                    <div className="flex gap-2 items-center mt-2 text-red-700">
+                        <CrossCircledIcon />
+                        <span className="text-xs">{error}</span>
+                    </div>
+                )}
             </div>
         );
     }
