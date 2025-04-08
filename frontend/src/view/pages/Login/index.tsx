@@ -32,15 +32,15 @@ export function LoginPage() {
                     {...register("email")}
                     type="email"
                     placeholder="E-mail"
+                    error={errors.email?.message}
                 />
-                {errors.email && <span>{errors.email.message}</span>}
                 <Input
                     {...register("password")}
                     type="password"
                     placeholder="Password"
+                    error={errors.password?.message}
                 />
-                {errors.password && <span>{errors.password.message}</span>}
-                <Button type="submit" label="Entrar" />
+                <Button className="mt-2" type="submit" label="Entrar" />
             </form>
         </>
     );
