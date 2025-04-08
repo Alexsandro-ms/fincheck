@@ -13,7 +13,7 @@ export function setupSwagger(app: INestApplication) {
   const document = SwaggerModule.createDocument(app, config);
 
   SwaggerModule.setup('docs', app, document, {
-    customSiteTitle: 'Minha API Personalizada',
+    customSiteTitle: 'Fincheck API Docs',
     swaggerOptions: {
       docExpansion: 'none',
       deepLinking: true,
