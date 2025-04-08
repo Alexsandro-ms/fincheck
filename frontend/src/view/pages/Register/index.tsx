@@ -4,7 +4,8 @@ import { Button } from "../../components/Button";
 import { useRegisterController } from "./useRegisterController";
 
 export function RegisterPage() {
-    const { errors, handleSubmit, register } = useRegisterController();
+    const { errors, handleSubmit, register, isLoading } =
+        useRegisterController();
     return (
         <>
             <header className="flex flex-col items-center gap-4">
@@ -45,7 +46,12 @@ export function RegisterPage() {
                     error={errors.password?.message}
                     {...register("password")}
                 />
-                <Button type="submit" label="Criar conta" className="mt-2" />
+                <Button
+                    type="submit"
+                    label="Criar conta"
+                    className="mt-2"
+                    isLoading={isLoading}
+                />
             </form>
         </>
     );
