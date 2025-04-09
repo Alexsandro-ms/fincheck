@@ -4,8 +4,8 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 export function setupSwagger(app: INestApplication) {
   const config = new DocumentBuilder()
-    .setTitle('Fincheck API')
-    .setDescription('Api destinada a consulta de dados financeiros.')
+    .setTitle('Fincheck - API Documentation')
+    .setDescription('API designed to consult financial data.')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
