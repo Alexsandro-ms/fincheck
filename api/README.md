@@ -45,6 +45,7 @@ Arquivo .env.example:
 
 ```env
   DATABASE_URL="postgresql://root:root@localhost:5432/fincheck?schema=public"
+
   JWT_SECRET="secure_jwt_secret"
 ```
 
@@ -72,9 +73,9 @@ Exemplo de token JWT:
 
 ## 🛠️ Scripts Úteis
 
-npm run start:dev Inicia a API em modo desenvolvimento
-npx prisma migrate dev Roda as migrations
-npx prisma studio Abre o painel visual do banco de dados
+- npm run start:dev Inicia a API em modo desenvolvimento
+- npx prisma migrate dev Roda as migrations
+- npx prisma studio Abre o painel visual do banco de dados
 
 ## ✍️ Observações
 
