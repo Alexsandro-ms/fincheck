@@ -12,7 +12,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('signin')
-  @ApiOperation({ summary: 'Realizar login do usuário' })
+  @ApiOperation({ summary: 'User login' })
   @ApiResponse({
     status: 200,
     description:
@@ -25,9 +25,9 @@ export class AuthController {
     return this.authService.signin(signinDto);
   }
 
-  @ApiOperation({ summary: 'Criar usuário' })
+  @ApiOperation({ summary: 'User Create' })
   @ApiResponse({ status: 409, description: 'This email already exists' })
-  @ApiResponse({ status: 401, description: 'Credenciais inválidas' })
+  @ApiResponse({ status: 401, description: 'Invalid credentials' })
   @ApiResponse({
     status: 200,
     description:
