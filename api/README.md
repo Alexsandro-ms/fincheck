@@ -57,6 +57,8 @@ A documentação da API está disponível em:
 
 http://localhost:3000/docs
 
+![Documentação do Swagger](.github/swagger.png)
+
 Você pode definir a porta padrão nas variáveis de ambiente.
 
 Todas as rotas públicas e privadas estão listadas.
