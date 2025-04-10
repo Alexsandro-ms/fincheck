@@ -1,8 +1,9 @@
 import { ComponentProps } from "react";
 import { cn } from "../../app/utils/cn";
+import { Spinner } from "./Spinner";
 
 interface ButtonProps extends ComponentProps<"button"> {
-    label: string;
+    children: string;
     isLoading?: boolean;
 }
 
@@ -10,19 +11,20 @@ export function Button({
     className,
     isLoading,
     disabled,
-    label,
+    children,
     ...props
 }: ButtonProps) {
     return (
         <button
             {...props}
             className={cn(
-                "bg-[#087F5B] hover:bg-[#099268] disabled:bg-gray-100 px-6 h-12 rounded-2xl text-white font-medium disabled:text-gray-400 disabled:cursor-not-allowed transition-all",
+                "bg-[#087F5B] flex items-center justify-center hover:bg-[#099268] disabled:bg-gray-100 px-6 h-12 rounded-2xl text-white font-medium disabled:text-gray-400 disabled:cursor-not-allowed transition-all",
                 className
             )}
             disabled={disabled || isLoading}
         >
-            {label}
+            {!isLoading && children}
+            {isLoading && <Spinner className="w-6 h-6" />}
         </button>
     );
 }
