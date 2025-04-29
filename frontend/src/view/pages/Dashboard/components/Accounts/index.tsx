@@ -1,11 +1,13 @@
 // @ts-expect-error: Swiper CSS types not available in current version...
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EyeIcon } from "../../../components/icons/EyeIcon";
+import { EyeIcon } from "../../../../components/icons/EyeIcon";
 import AccountCard from "./AccountCard";
 import { AccountSliderNavigation } from "./AccountSliderNavigation";
+import useAccountController from "./useAccountController";
 
 export default function Accounts() {
+    const { sliderState, setSliderState } = useAccountController();
     return (
         <div className="bg-[#087F5B] rounded-2xl w-full h-full p-10 flex flex-col">
             <div>
@@ -23,7 +25,16 @@ export default function Accounts() {
             </div>
             <div className="flex-1 flex flex-col justify-end">
                 <div>
-                    <Swiper spaceBetween={16} slidesPerView={2.1}>
+                    <Swiper
+                        spaceBetween={16}
+                        slidesPerView={2.1}
+                        onSlideChange={(swiper) => {
+                            setSliderState({
+                                isBeginning: swiper.isBeginning,
+                                isEnd: swiper.isEnd,
+                            });
+                        }}
+                    >
                         <div
                             className="flex items-center justify-between mb-4"
                             slot="container-start"
@@ -31,7 +42,10 @@ export default function Accounts() {
                             <strong className="text-white tracking-[-1px] text-lg">
                                 Minhas contas
                             </strong>
-                            <AccountSliderNavigation />
+                            <AccountSliderNavigation
+                                isBeginning={sliderState.isBeginning}
+                                isEnd={sliderState.isEnd}
+                            />
                         </div>
                         <SwiperSlide>
                             <AccountCard
