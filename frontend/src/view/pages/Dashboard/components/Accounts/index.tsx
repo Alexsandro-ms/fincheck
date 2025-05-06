@@ -3,11 +3,19 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EyeIcon } from "../../../../components/icons/EyeIcon";
 import AccountCard from "./AccountCard";
-import { AccountSliderNavigation } from "./AccountSliderNavigation";
+import { SliderNavigation } from "./SliderNavigation";
 import useAccountController from "./useAccountController";
+import { formatCurrency } from "../../../../../app/utils/formatCurrency";
+import { cn } from "../../../../../app/utils/cn";
 
 export default function Accounts() {
-    const { sliderState, setSliderState, windowWidth } = useAccountController();
+    const {
+        sliderState,
+        setSliderState,
+        windowWidth,
+        areValuesVisible,
+        toggleValuesVisibility,
+    } = useAccountController();
     return (
         <div className="bg-[#087F5B] rounded-2xl w-full h-full p-10 flex flex-col">
             <div>
@@ -15,11 +23,19 @@ export default function Accounts() {
                     Saldo total
                 </span>
                 <div className="flex items-center gap-2">
-                    <strong className="text-2xl tracking-[-1px] text-white">
-                        R$ 100,00
+                    <strong
+                        className={cn(
+                            "text-2xl tracking-[-1px] text-white",
+                            !areValuesVisible && "blur-md"
+                        )}
+                    >
+                        {formatCurrency(1093.23)}
                     </strong>
-                    <button className="w-8 h-8 flex items-center justify-center">
-                        <EyeIcon open />
+                    <button
+                        className="w-8 h-8 flex items-center justify-center"
+                        onClick={toggleValuesVisibility}
+                    >
+                        <EyeIcon open={!areValuesVisible} />
                     </button>
                 </div>
             </div>
@@ -42,7 +58,7 @@ export default function Accounts() {
                             <strong className="text-white tracking-[-1px] text-lg">
                                 Minhas contas
                             </strong>
-                            <AccountSliderNavigation
+                            <SliderNavigation
                                 isBeginning={sliderState.isBeginning}
                                 isEnd={sliderState.isEnd}
                             />
