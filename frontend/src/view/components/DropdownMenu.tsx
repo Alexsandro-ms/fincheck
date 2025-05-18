@@ -30,7 +30,7 @@ export function DropdownMenuContent({
         <RdxDropdownMenu.Portal>
             <RdxDropdownMenu.Content
                 className={cn(
-                    "rounded-2xl p-2 bg-white space-y-2 shadow-[0_11px_20px_0_rgba(0,0,0,0.1)] animate-slide-up-and-fade",
+                    "rounded-2xl p-2 bg-white space-y-2 shadow-[0_11px_20px_0_rgba(0,0,0,0.1)] animate-slide-up-and-fade z-50",
                     className
                 )}
             >
@@ -54,7 +54,7 @@ export function DropdownMenuItem({
     return (
         <RdxDropdownMenu.Item
             className={cn(
-                "min-h-[48px] outline-none flex items-center p-4 text-[#343A40] text-sm data-[highlighted]:bg-gray-50 rounded-2xl transition-colors cursor-pointer",
+                "min-h-[40px] outline-none flex items-center py-2 px-4 text-[#343A40] text-sm data-[highlighted]:bg-gray-50 rounded-2xl transition-colors cursor-pointer",
                 className
             )}
             onSelect={onSelect}
