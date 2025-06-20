@@ -11,7 +11,10 @@ export function DropdownMenuTrigger({
     children: React.ReactNode;
 }) {
     return (
-        <RdxDropdownMenu.Trigger className="outline-none cursor-pointer">
+        <RdxDropdownMenu.Trigger
+            className="outline-none cursor-pointer"
+            asChild
+        >
             {children}
         </RdxDropdownMenu.Trigger>
     );
