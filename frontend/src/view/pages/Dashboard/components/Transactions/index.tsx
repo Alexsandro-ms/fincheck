@@ -10,12 +10,21 @@ import { CategoryIcon } from "../../../../components/icons/categories/CategoryIc
 import { useTransactionController } from "./useTransactionController";
 import { cn } from "../../../../../app/utils/cn";
 import { Spinner } from "../../../../components/Spinner";
+// @ts-expect-error: TypeScript is not finding the path but it is correct...
 import emptyStateImage from "../../../../../assets/empty-state.svg";
 import { TransactionTypeDropdown } from "./TransactionTypeDropdown";
+import { FiltersModal } from "./FiltersModal";
 
 export default function Transactions() {
-    const { areValuesVisible, isInitialLodaing, isLoading, transactions } =
-        useTransactionController();
+    const {
+        areValuesVisible,
+        isInitialLodaing,
+        isLoading,
+        transactions,
+        handleCloseFiltersModal,
+        handleOpenFiltersModal,
+        isFiltersModalOpen,
+    } = useTransactionController();
 
     const hasTransactions = transactions.length > 0;
 
@@ -28,10 +37,17 @@ export default function Transactions() {
             )}
             {!isInitialLodaing && (
                 <>
+                    <FiltersModal
+                        open={isFiltersModalOpen}
+                        onClose={handleCloseFiltersModal}
+                    />
                     <header>
                         <div className="flex items-center justify-between">
                             <TransactionTypeDropdown />
-                            <button>
+                            <button
+                                onClick={handleOpenFiltersModal}
+                                className="flex items-center justify-center cursor-pointer"
+                            >
                                 <FilterIcon />
                             </button>
                         </div>
