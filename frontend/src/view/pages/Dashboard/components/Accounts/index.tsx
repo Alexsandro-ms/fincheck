@@ -1,14 +1,14 @@
 // @ts-expect-error: Swiper CSS types not available in current version...
+import { PlusIcon } from "@radix-ui/react-icons";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { cn } from "../../../../../app/utils/cn";
+import { formatCurrency } from "../../../../../app/utils/formatCurrency";
 import { EyeIcon } from "../../../../components/icons/EyeIcon";
+import { Spinner } from "../../../../components/Spinner";
 import AccountCard from "./AccountCard";
 import { SliderNavigation } from "./SliderNavigation";
 import useAccountController from "./useAccountController";
-import { formatCurrency } from "../../../../../app/utils/formatCurrency";
-import { cn } from "../../../../../app/utils/cn";
-import { Spinner } from "../../../../components/Spinner";
-import { PlusIcon } from "@radix-ui/react-icons";
 
 export default function Accounts() {
     const {
@@ -19,6 +19,7 @@ export default function Accounts() {
         toggleValuesVisibility,
         isLoading,
         accounts,
+        openNewAccountModal,
     } = useAccountController();
     return (
         <div className="bg-[#087F5B] rounded-2xl w-full h-full p-10 flex flex-col">
@@ -58,7 +59,10 @@ export default function Accounts() {
                                         Minhas contas
                                     </strong>
                                 </div>
-                                <button className="mt-4 h-52 rounded-2xl border-2 cursor-pointer border-dashed border-[#12B886] flex flex-col items-center justify-center gap-4 text-white">
+                                <button
+                                    className="mt-4 h-52 rounded-2xl border-2 cursor-pointer border-dashed border-[#12B886] flex flex-col items-center justify-center gap-4 text-white"
+                                    onClick={openNewAccountModal}
+                                >
                                     <div className="w-11 h-11 rounded-full border-2 border-white border-dashed flex items-center justify-center">
                                         <PlusIcon className="w-6 h-6" />
                                     </div>
