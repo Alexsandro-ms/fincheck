@@ -1,5 +1,5 @@
-import React from "react";
 import * as RdxDropdownMenu from "@radix-ui/react-dropdown-menu";
+import React from "react";
 import { cn } from "../../app/utils/cn";
 
 export function DropdownMenuRoot({ children }: { children: React.ReactNode }) {
@@ -33,7 +33,7 @@ export function DropdownMenuContent({
         <RdxDropdownMenu.Portal>
             <RdxDropdownMenu.Content
                 className={cn(
-                    "rounded-2xl p-2 bg-white space-y-2 shadow-[0_11px_20px_0_rgba(0,0,0,0.1)] z-50",
+                    "rounded-2xl p-2 bg-white space-y-2 shadow-[0_11px_20px_0_rgba(0,0,0,0.1)] z-[99]",
                     "animate-slide-up-and-fade",
                     "animate-slide-down-and-fade",
                     className

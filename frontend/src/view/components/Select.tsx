@@ -31,7 +31,7 @@ export default function Select({
 
     return (
         <div>
-            <div className="relative">
+            <div className="relative h-[52px]">
                 <label
                     className={cn(
                         "absolute z-10 top-1/2 left-3 pointer-events-none text-gray-700 -translate-y-1/2",
@@ -60,7 +60,7 @@ export default function Select({
                                 <ChevronUpIcon />
                             </RdxSelect.ScrollUpButton>
 
-                            <RdxSelect.Viewport className="p-2">
+                            <RdxSelect.Viewport>
                                 {options.map((option) => (
                                     <RdxSelect.Item
                                         key={option.value}
