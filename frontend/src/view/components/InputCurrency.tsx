@@ -2,14 +2,10 @@ import { NumericFormat } from "react-number-format";
 export function InputCurrency() {
     return (
         <NumericFormat
-            value={1000}
             thousandSeparator="."
             decimalSeparator=","
-            prefix="R$ "
-            displayType="input"
-            onValueChange={(values) => {
-                console.log(values.floatValue);
-            }}
+            defaultValue="0,00"
+            className="w-full text-[#343A40] text-[32px] font-bold tracking-[-1px] outline-none"
         />
     );
 }
