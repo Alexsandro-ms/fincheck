@@ -1,0 +1,44 @@
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { DayPicker } from "react-day-picker";
+import { capitalizeFirstLetter } from "../../app/utils/capitalizeFirstLetter";
+
+interface DatePickerProps {
+    value: Date;
+    onChange?(date: Date): void;
+}
+
+export function DatePicker({ value, onChange }: DatePickerProps) {
+    return (
+        <DayPicker
+            locale={ptBR}
+            selected={value}
+            mode="single"
+            onSelect={(date) => onChange?.(date ?? new Date())}
+            classNames={{
+                caption_label:
+                    "px-1 py-[13px] tracking-[-0.408px] text-gray-900 font-medium",
+                nav: "flex gap-1 justify-between items-center mb-2",
+                chevron: "fill-teal-900",
+                button_previous:
+                    "flex items-center justify-between !bg-transparent cursor-pointer",
+                button_next:
+                    "flex items-center justify-between !bg-transparent cursor-pointer",
+                weekdays:
+                    "uppercase text-sm text-gray-500 font-medium pt-1 pb-2",
+                day: "text-center text-gray-700 cursor-pointer w-10 h-10 hover:bg-teal-100 rounded-full",
+            }}
+            modifiersClassNames={{
+                today: "bg-gray-100 font-bold text-gray-900",
+                selected: "!bg-teal-900 text-white font-sm",
+            }}
+            formatters={{
+                formatCaption: (date, options) => {
+                    return capitalizeFirstLetter(
+                        format(date, "LLLL yyyy", options)
+                    );
+                },
+            }}
+        />
+    );
+}
