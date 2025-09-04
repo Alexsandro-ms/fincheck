@@ -10,7 +10,7 @@ export function Fab() {
         <div className="fixed bottom-4 right-4">
             <DropdownMenu.Root>
                 <DropdownMenu.Trigger>
-                    <button className="text-white w-12 h-12 bg-[#087F5B] rounded-full flex items-center justify-center cursor-pointer">
+                    <button className="text-white w-12 h-12 bg-[#087F5B] rounded-full flex items-center justify-center cursor-pointer pointer-events-auto">
                         <PlusIcon className="w-6 h-6" />
                     </button>
                 </DropdownMenu.Trigger>
