@@ -25,16 +25,23 @@ API para controle financeiro pessoal, com gerenciamento de contas bancárias, au
 ## 💻 Instalação Rápida
 
 ```bash
-  git clone https://github.com/Alexsandro-ms/fincheck.git
-  cd fincheck/api
+git clone https://github.com/Alexsandro-ms/fincheck.git
+cd fincheck/api
 
-  npm install
+# instala dependências
+npm install
 
-  cp .env.example .env
+# cria o .env
+cp .env.example .env
 
-  npx prisma migrate dev
+# gera o client do Prisma
+npx prisma generate
 
-  npm run start:dev
+# cria as tabelas no banco
+npx prisma migrate dev
+
+# roda a aplicação
+npm run start:dev
 ```
 
 ---
