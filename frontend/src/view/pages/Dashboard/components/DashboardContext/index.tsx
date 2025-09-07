@@ -20,7 +20,7 @@ export function DashboardContextProvider({
     children: React.ReactNode;
 }) {
     const [areValuesVisible, setAreValuesVisible] = useState(true);
-    const [isNewAccountModalOpen, setIsNewAccountModalOpen] = useState(false);
+    const [isNewAccountModalOpen, setIsNewAccountModalOpen] = useState(true);
     const [isNewTransactionModal, setIsNewTransactionModal] = useState(false);
     const [newTransactionType, setIsNewTransactionType] = useState<
         "INCOME" | "EXPENSE" | null
